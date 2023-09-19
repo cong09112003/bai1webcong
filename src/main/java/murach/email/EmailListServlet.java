@@ -8,12 +8,14 @@ import murach.business.User;
  *
  * @author HP
  */
-public class EmailListServlet extends HttpServlet {
+public class EmailListServlet extends HttpServlet  {
+
     @Override
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
-            throws ServletException, IOException{
-        String url = "/index.html";
+            throws ServletException, IOException {
+
+        String url = "/index.jsp";
 
         // get current action
         String action = request.getParameter("action");
@@ -22,7 +24,7 @@ public class EmailListServlet extends HttpServlet {
         }
         // perform action and set URL to appropriate page
         if (action.equals("join")) {
-            url = "/index.html";    // the "join" page
+            url = "/index.jsp";    // the "join" page
         }
         else if (action.equals("add")) {
             // get parameters from the request
@@ -44,7 +46,10 @@ public class EmailListServlet extends HttpServlet {
                 .getRequestDispatcher(url)
                 .forward(request, response);
     }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
-        doPost(request,response);
+    @Override
+    protected void doGet(HttpServletRequest request,
+                         HttpServletResponse response)
+            throws ServletException, IOException {
+        doPost(request, response);
     }
 }

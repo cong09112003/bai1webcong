@@ -2,11 +2,8 @@ package murach.business;
 
 import java.io.Serializable;
 
-/**
- *
- * @author HP
- */
-public class User implements Serializable{
+
+public class User implements Serializable {
     private String firstName;
     private String lastName;
     private String email;
